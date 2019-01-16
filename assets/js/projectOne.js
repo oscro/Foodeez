@@ -4,7 +4,6 @@ var clientId = "70tPFL3C-kkqIjxx66gBdw";
 
 var queryURL = "https://api.yelp.com/v3/autocomplete?text=del&latitude=37.786882&longitude=-122.399972";
 
-var client = clientId(apiKey);
 
 console.log(client);
 
