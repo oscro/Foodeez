@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ajax Test</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+  </head>
+
+  <body>
+    <p1
+      >This uses the zomato api found
+      <a href="https://developers.zomato.com/api#headline1" target="_blank"
+        >here</a
+      >.</p1
+    ><br />
+    An example from a question about it on stack overflow can be found
+    <a
+      href="https://stackoverflow.com/questions/47565992/trouble-populating-infowindows-with-zomato-api-data-via-ajax"
+      target="_blank"
+      >here</a
+    >.<br />
+    Info from RapidAPI on Zomato can be found
+    <a href="https://rapidapi.com/raygorodskij/api/Zomato" target="_blank"
+      >here</a
+    >.
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $.ajax({
+        method: "GET",
+        crossDomain: true,
+        url:
+          "https://developers.zomato.com/api/v2.1/search?entity_id=Orlando&entity_type=city&q=Hamburger&start=0&count=5&radius=200&sort=rating",
+        dataType: "json",
+        async: true,
+        headers: {
+          "user-key": "482b50d967243f8b099277473c602735"
+        },
+        success: function(data) {
+          console.log(data);
+          console.log(data.restaurants[0].restaurant);
+          var restaurantOne = data.restaurants[0].restaurant;
+          var rOneName = restaurantOne.name;
+          var rOnePrice = restaurantOne.average_cost_for_two;
+          var rOneCuisines = restaurantOne.cuisines;
+          console.log(restaurantOne.location);
+          var rOneMenu = restaurantOne.menu_url;
+          var rOneRating = restaurantOne.user_rating.aggregate_rating;
+        },
+        error: function() {
+          console.log("error");
+        }
+      });
+    </script>
+  </body>
+</html>
