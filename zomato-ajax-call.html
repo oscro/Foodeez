@@ -23,9 +23,7 @@
       >here</a
     >.<br />
     Info from RapidAPI on Zomato can be found
-    <a
-      href="https://rapidapi.com/raygorodskij/api/Zomato"
-      target="_blank"
+    <a href="https://rapidapi.com/raygorodskij/api/Zomato" target="_blank"
       >here</a
     >.
 
@@ -43,6 +41,14 @@
         },
         success: function(data) {
           console.log(data);
+          console.log(data.restaurants[0].restaurant);
+          var restaurantOne = data.restaurants[0].restaurant;
+          var rOneName = restaurantOne.name;
+          var rOnePrice = restaurantOne.average_cost_for_two;
+          var rOneCuisines = restaurantOne.cuisines;
+          console.log(restaurantOne.location);
+          var rOneMenu = restaurantOne.menu_url;
+          var rOneRating = restaurantOne.user_rating.aggregate_rating;
         },
         error: function() {
           console.log("error");
