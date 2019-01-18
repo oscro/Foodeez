@@ -1,0 +1,18 @@
+#logo{
+   width: 450px;
+    height: 450px;
+}
+p{
+    text-align: center;
+}
+.jumbotron {
+    background-image:url('https://jooinn.com/images/italian-food-background-1.jpg');
+    height:475px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-bottom:1px solid black;
+}
+.jumbotron .container {
+    position:relative;
+    top:100px;
+}
