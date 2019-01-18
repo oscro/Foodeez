@@ -23,17 +23,75 @@
       >here</a
     >.<br />
     Info from RapidAPI on Zomato can be found
-    <a href="https://rapidapi.com/raygorodskij/api/Zomato" target="_blank"
-      >here</a
-    >.
+    <a href="https://rapidapi.com/raygorodskij/api/Zomato" target="_blank" id="finalElement">here</a>
+
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Example select</label>
+      <select class="form-control" id="cuisineSelector">
+        <option value="Japanese">Japanese</option>
+        <option value="Hamburger">Hamburger</option>
+        <option value="Pizza">Pizza</option>
+        <option value="Italian">Italian</option>
+        <option value="Vegan">Vegan</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleFormControlSelect2">Example select</label>
+      <select class="form-control" id="localeSelector">
+        <option value="Seattle">Seattle</option>
+        <option value="Los Angeles">Los Angeles</option>
+        <option value="Boston">Boston</option>
+        <option value="New York City">New York</option>
+        <option value="Austin">Austin</option>
+      </select>
+    </div>
+
+    <button type="button" class="btn btn-dark" id="userSubmit">Submit</button>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
-      $.ajax({
+
+      var userCuisineSelector = $("#cuisineSelector");
+      
+      var localeSelector = $("#localeSelector");
+
+      //var cuisine = "Hamburger";
+
+      //var locale = "Orlando";
+
+      userCuisineSelector.on("click", function(){
+
+      var cuisine = userCuisineSelector.val();
+
+      console.log(cuisine);
+
+      });
+
+      localeSelector.on("click", function(){
+
+      var locale = localeSelector.val();
+
+      console.log(locale);
+
+      });
+
+
+
+    $("#userSubmit").on("click", function(e){
+    event.preventDefault(e);
+
+    var cuisine = userCuisineSelector.val();
+    var locale = localeSelector.val();
+
+    console.log(cuisine);
+    console.log(locale);
+
+    $.ajax({
         method: "GET",
         crossDomain: true,
         url:
-          "https://developers.zomato.com/api/v2.1/search?entity_id=Orlando&entity_type=city&q=Hamburger&start=0&count=5&radius=200&sort=rating",
+          "https://developers.zomato.com/api/v2.1/locations?query=" + "New%20York",
         dataType: "json",
         async: true,
         headers: {
@@ -41,19 +99,46 @@
         },
         success: function(data) {
           console.log(data);
-          console.log(data.restaurants[0].restaurant);
-          var restaurantOne = data.restaurants[0].restaurant;
-          var rOneName = restaurantOne.name;
-          var rOnePrice = restaurantOne.average_cost_for_two;
-          var rOneCuisines = restaurantOne.cuisines;
-          console.log(restaurantOne.location);
-          var rOneMenu = restaurantOne.menu_url;
-          var rOneRating = restaurantOne.user_rating.aggregate_rating;
+          console.log(data.location_suggestions[0].city_id);
+          locale = data.location_suggestions[0].city_id;
+
+        $.ajax({
+        method: "GET",
+        crossDomain: true,
+        url:
+        "https://developers.zomato.com/api/v2.1/search?entity_id=" + locale + "&entity_type=city&q=" + "japanese",
+        dataType: "json",
+        async: true,
+        headers: {
+          "user-key": "482b50d967243f8b099277473c602735"
+        },
+        success: function(data) {
+          console.log(data);
+          
+          //console.log(data.restaurants[0].restaurant);
+          //var restaurantOne = data.restaurants[0].restaurant;
+          //var rOneName = restaurantOne.name;
+          //var rOnePrice = restaurantOne.average_cost_for_two;
+          //var rOneCuisines = restaurantOne.cuisines;
+          //console.log(restaurantOne.location);
+          //var rOneMenu = restaurantOne.menu_url;
+          //var rOneRating = restaurantOne.user_rating.aggregate_rating;
         },
         error: function() {
           console.log("error");
         }
       });
+
+
+
+        },
+        error: function() {
+          console.log("error");
+        }
+      });
+
+    });
+
     </script>
   </body>
 </html>
