@@ -1,3 +1,5 @@
+console.log("This js is all linked up!");
+
 var userCuisineSelector = $("#cuisineSelector");
 
 var localeSelector = $("#localeSelector");
