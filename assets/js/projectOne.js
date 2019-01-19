@@ -1,10 +1,28 @@
 console.log("This js is all linked up!");
 
+var cuisine = "";
+var locale = "";
+
+$(".cuisine-item").on("click", function(){
+  console.log($(this).val());
+  $("#cuisineSearchBar").val($(this).val());
+})
+
+$(".locale-item").on("click", function(){
+  console.log($(this).val());
+  $("#localeSearchBar").val($(this).val());
+})
+
 $("#userSubmit").on("click", function(e) {
   event.preventDefault(e);
 
-  var cuisine = $("#cuisineSelector").val();
-  var locale = $("#localeSelector").val();
+  cuisine = $("#cuisineSearchBar").val();
+
+  locale = $("#localeSearchBar").val();
+
+  if (cuisine === "" || locale === "") {
+    return;
+  }
 
   console.log(cuisine);
   console.log(locale);
@@ -29,7 +47,7 @@ $("#userSubmit").on("click", function(e) {
         method: "GET",
         crossDomain: true,
         url:
-          "https://developers.zomato.com/api/v2.1/search?entity_id=" + locale + "&entity_type=city&q=" + cuisine,
+          "https://developers.zomato.com/api/v2.1/search?entity_id=" + locale + "&entity_type=city&q=" +  cuisine,
         dataType: "json",
         async: true,
         headers: {
@@ -46,6 +64,9 @@ $("#userSubmit").on("click", function(e) {
           console.log("zipcode " + restOne.location.zipcode);
           console.log("Rating " + restOne.user_rating.aggregate_rating);
           console.log("- - - - - - - - - -");
+          cuisine = "";
+          $("#cuisineSearchBar").val("");
+          $("#localeSearchBar").val("");
 
         },
 
