@@ -1,18 +1,55 @@
-var apiKey = "w1wvrwmG8SQgOz5YXukdzsrC5FPM12g7haW9fRirPG141Gqv2YTbeqbm84u2vcZuMa3tSlZr2RAfc9hSnAzROIa5RsxdLSt41Dg7AXmcC931yBDRsgMSgvuAvIc-XHYx";
+var userCuisineSelector = $("#cuisineSelector");
 
-var clientId = "70tPFL3C-kkqIjxx66gBdw";
+var localeSelector = $("#localeSelector");
 
-var queryURL = "https://api.yelp.com/v3/autocomplete?text=del&latitude=37.786882&longitude=-122.399972";
+$("#userSubmit").on("click", function(e) {
+  event.preventDefault(e);
 
+  var cuisine = userCuisineSelector.val();
+  var locale = localeSelector.val();
 
-console.log(client);
+  console.log(cuisine);
+  console.log(locale);
 
+  $.ajax({
+    method: "GET",
+    crossDomain: true,
+    url:
+      "https://developers.zomato.com/api/v2.1/locations?query=" + locale,
+    dataType: "json",
+    async: true,
+    headers: {
+      "user-key": "482b50d967243f8b099277473c602735"
+    },
 
+    success: function(data) {
+      console.log(data);
+      locale = data.location_suggestions[0].city_id;
 
-$.ajax({
-    url: queryURL,
-    method: "GET"
-  }).then(function(response) {
-    console.log(response);
+      $.ajax({
+        method: "GET",
+        crossDomain: true,
+        url:
+          "https://developers.zomato.com/api/v2.1/search?entity_id=" + locale + "&entity_type=city&q=" + cuisine,
+        dataType: "json",
+        async: true,
+        headers: {
+          "user-key": "482b50d967243f8b099277473c602735"
+        },
+
+        success: function(result) {
+          console.log(result);
+
+        },
+
+        error: function() {
+          console.log("error");
+        }
+      });
+    },
     
+    error: function() {
+      console.log("error");
+    }
   });
+});
