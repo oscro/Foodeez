@@ -1,13 +1,16 @@
 #logo{
-   width: 450px;
-    height: 450px;
+   position: relative;
+   left: 100px;
+    width: 600px;
+    height: 600px;
+   
 }
 p{
     text-align: center;
 }
 .jumbotron {
-    background-image:url('https://jooinn.com/images/italian-food-background-1.jpg');
-    height:475px;
+    background-image:url('https://i.pinimg.com/originals/ec/c7/a4/ecc7a4f021aab13bf5197543d291adf7.jpg');
+    height:550px;
     background-repeat: no-repeat;
     background-size: cover;
     border-bottom:1px solid black;
@@ -16,3 +19,18 @@ p{
     position:relative;
     top:100px;
 }
+
+#services{
+    background-color: whitesmoke;
+}
+
+.intro{
+    padding: 50px;
+    text-align: center;
+}
+.start{
+    padding: 50px;
+    text-align: center;
+}
+
+
