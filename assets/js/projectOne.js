@@ -1,14 +1,10 @@
 console.log("This js is all linked up!");
 
-var userCuisineSelector = $("#cuisineSelector");
-
-var localeSelector = $("#localeSelector");
-
 $("#userSubmit").on("click", function(e) {
   event.preventDefault(e);
 
-  var cuisine = userCuisineSelector.val();
-  var locale = localeSelector.val();
+  var cuisine = $("#cuisineSelector").val();
+  var locale = $("#localeSelector").val();
 
   console.log(cuisine);
   console.log(locale);
@@ -27,6 +23,7 @@ $("#userSubmit").on("click", function(e) {
     success: function(data) {
       console.log(data);
       locale = data.location_suggestions[0].city_id;
+      console.log(locale);
 
       $.ajax({
         method: "GET",
@@ -41,6 +38,14 @@ $("#userSubmit").on("click", function(e) {
 
         success: function(result) {
           console.log(result);
+          var restOne = result.restaurants[0].restaurant;
+          console.log(restOne.name);
+          console.log("$" + restOne.average_cost_for_two + " for two");
+          console.log(restOne.location.address);
+          console.log(restOne.location.city);
+          console.log("zipcode " + restOne.location.zipcode);
+          console.log("Rating " + restOne.user_rating.aggregate_rating);
+          console.log("- - - - - - - - - -");
 
         },
 
