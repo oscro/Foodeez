@@ -27,6 +27,28 @@
       integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
       crossorigin="anonymous"
     />
+
+    <!--FIREBASE LINK-->
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+
+
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCEp43oNAFnbMYhTepy_dDeefOJm2zIJjU",
+        authDomain: "projectone-f0122.firebaseapp.com",
+        databaseURL: "https://projectone-f0122.firebaseio.com",
+        projectId: "projectone-f0122",
+        storageBucket: "",
+        messagingSenderId: "339159221087"
+      };
+      firebase.initializeApp(config);
+
+      var database = firebase.database();
+
+    </script>
+
+
     <!--OUR CSS-->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
   </head>
@@ -63,26 +85,89 @@
       <p><img src="assets/logo_transparent.png" id="logo" /></p>
     </div>
 
-    <div class="form-group">
-      <label for="cuisineFormControlSelect">Select Your Cuisine</label>
-      <select class="form-control" id="cuisineSelector">
-        <option
-          ><input
-            type="text"
-            class="form-control"
-            id="userCuisine"
-            placeholder="search for your cuisine"
-        /></option>
-        <option value="Japanese">Japanese</option>
-        <option value="Hamburger">Hamburger</option>
-        <option value="Pizza">Pizza</option>
-        <option value="Italian">Italian</option>
-        <option value="Vegan">Vegan</option>
-      </select>
+    <div class="btn-group">
+      
+      <div class="input-group">
+        <input type="text" class="form-control" id="cuisineSearchBar" placeholder="Search a cuisine" aria-label="Cuisine Search" />
+        <div class="input-group-append" id="button-addon"></div>
+      </div>
+
+      <button
+        type="button"
+        class="btn btn-dark dropdown-toggle dropdown-toggle-split"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <div class="dropdown-menu" id="cuisineSelectorDropdown">
+        <button class="dropdown-item cuisine-item" type="button" value="Japanese">Japanese</a>
+        <button class="dropdown-item cuisine-item" type="button" value="Hamburger">Hamburger</button>
+        <button class="dropdown-item cuisine-item" type="button" value="Pizza">Pizza</button>
+        <button class="dropdown-item cuisine-item" type="button" value="Italian">Italian</button>
+        <button class="dropdown-item cuisine-item" type="button" value="Vegan">Vegan</button>
+      </div>
     </div>
 
-    <div class="form-group">
-      <label for="localeFormControlSelect">Select Your Locale</label>
+    <br/><br/>
+
+    <div class="btn-group">
+      
+        <div class="input-group">
+          <input type="text" class="form-control" id="localeSearchBar" placeholder="Search a locale" aria-label="Locale Search" />
+          <div class="input-group-append" id="button-addon"></div>
+        </div>
+  
+        <button
+          type="button"
+          class="btn btn-dark dropdown-toggle dropdown-toggle-split"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <div class="dropdown-menu" id="localeSelectorDropdown">
+          <button class="dropdown-item locale-item" type="button" value="Seattle">Seattle</a>
+          <button class="dropdown-item locale-item" type="button" value="Los Angeles">Los Angeles</button>
+          <button class="dropdown-item locale-item" type="button" value="Boston">Boston</button>
+          <button class="dropdown-item locale-item" type="button" value="New York City">New York City</button>
+          <button class="dropdown-item locale-item" type="button" value="Austin">Austin</button>
+        </div>
+
+    </div>
+
+    <br/><br/>
+
+    <div class="btn-group">
+      
+      <div class="input-group">
+        <input type="text" class="form-control" id="recipeSearchBar" placeholder="Search a cuisine" aria-label="Recipe Search" />
+        <div class="input-group-append" id="button-addon"></div>
+      </div>
+
+      <button
+        type="button"
+        class="btn btn-dark dropdown-toggle dropdown-toggle-split"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <div class="dropdown-menu" id="recipeSelectorDropdown">
+        <button class="dropdown-item cuisine-item" type="button" value="Chicken">Chicken</a>
+        <button class="dropdown-item cuisine-item" type="button" value="Steak">Steak</button>
+        <button class="dropdown-item cuisine-item" type="button" value="Pizza">Pizza</button>
+        <button class="dropdown-item cuisine-item" type="button" value="Salad">Salad</button>
+        <button class="dropdown-item cuisine-item" type="button" value="Vegan">Vegan</button>
+      </div>
+    </div>
+
+    <br/><br/>
+
+    <!-- <div class="form-group">
       <select class="form-control" id="localeSelector">
         <option value="Seattle">Seattle</option>
         <option value="Los Angeles">Los Angeles</option>
@@ -90,9 +175,9 @@
         <option value="New York City">New York</option>
         <option value="Austin">Austin</option>
       </select>
-    </div>
+    </div> -->
 
-    <button type="button" class="btn btn-dark" id="userSubmit">Submit</button>
+    <button type="button" class="btn btn-dark mb-5" id="userSubmit">Submit</button>
 
     <!--JQUERY MINI-->
     <script
@@ -117,5 +202,7 @@
 
     <!--OWN JS-->
     <script type="text/javascript" src="assets/js/projectOne.js"></script>
+
+    <script type="text/javascript" src="assets/js/edamam.js"></script>
   </body>
 </html>
