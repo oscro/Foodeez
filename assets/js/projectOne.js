@@ -1,3 +1,5 @@
+console.log("This js is all linked up!");
+
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyAHonm8D-x8rwzlmmREf8PXIMCixe7h-AA",
@@ -10,9 +12,7 @@ var config = {
 
 firebase.initializeApp(config);
 
-var database = firebase.database();
-
-console.log("This js is all linked up!");
+var database = firebase.database().ref("/favorites");
 
 var cuisine = "";
 var locale = "";
