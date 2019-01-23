@@ -13,6 +13,8 @@
   <!--FONT AWESOME CSS-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
     crossorigin="anonymous" />
+     <!--FIREBASE JS-->
+     <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
   <!--OUR CSS-->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
 </head>
@@ -137,36 +139,71 @@
     </div>
     <div class="container">
       <div class="start"></div>
-      <div class="form-group">
-          <label for="cuisineFormControlSelect">Select Your Cuisine</label>
-          <select class="form-control" id="cuisineSelector">
-            <option
-              ><input
-                type="text"
-                class="form-control"
-                id="userCuisine"
-                placeholder="search for your cuisine"
-            /></option>
-            <option value="Japanese">Japanese</option>
-            <option value="Hamburger">Hamburger</option>
-            <option value="Pizza">Pizza</option>
-            <option value="Italian">Italian</option>
-            <option value="Vegan">Vegan</option>
-          </select>
+
+      <!--Search bar for cuisine-->
+      <div class="btn-group">
+        
+        <!--Actual cuisine form input-->
+        <div class="input-group">
+          <input type="text" class="form-control" id="cuisineSearchBar" placeholder="Search a cuisine" aria-label="Cuisine Search" />
+          <div class="input-group-append" id="button-addon"></div>
         </div>
-    
-        <div class="form-group">
-          <label for="localeFormControlSelect">Select Your Locale</label>
-          <select class="form-control" id="localeSelector">
-            <option value="Seattle">Seattle</option>
-            <option value="Los Angeles">Los Angeles</option>
-            <option value="Boston">Boston</option>
-            <option value="New York City">New York</option>
-            <option value="Austin">Austin</option>
-          </select>
+
+        <!--Button next to form that acts as a dropdown-->
+        <button
+          type="button"
+          class="btn btn-dark dropdown-toggle dropdown-toggle-split"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+
+        <!--This is what is displayed in the dropdown-->
+        <div class="dropdown-menu" id="cuisineSelectorDropdown">
+          <button class="dropdown-item cuisine-item" type="button" value="Japanese">Japanese</a>
+          <button class="dropdown-item cuisine-item" type="button" value="Hamburger">Hamburger</button>
+          <button class="dropdown-item cuisine-item" type="button" value="Pizza">Pizza</button>
+          <button class="dropdown-item cuisine-item" type="button" value="Italian">Italian</button>
+          <button class="dropdown-item cuisine-item" type="button" value="Vegan">Vegan</button>
         </div>
+      </div>
     
-        <button type="button" class="btn btn-dark" id="userSubmit">Submit</button>
+      <!--Search bar for cities-->
+      <div class="btn-group">
+        
+        <!--Actual city form input-->
+        <div class="input-group">
+          <input type="text" class="form-control" id="localeSearchBar" placeholder="Enter a City" aria-label="Locale Search" />
+          <div class="input-group-append" id="button-addon"></div>
+        </div>
+
+        <!--Button next to form that acts as a dropdown-->
+        <button
+          type="button"
+          class="btn btn-dark dropdown-toggle dropdown-toggle-split"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+
+        <!--This is what is displayed in the dropdown-->
+        <div class="dropdown-menu" id="localeSelectorDropdown">
+          <button class="dropdown-item locale-item" type="button" value="Seattle">Seattle</a>
+          <button class="dropdown-item locale-item" type="button" value="Orlando">Orlando</button>
+          <button class="dropdown-item locale-item" type="button" value="Tampa Bay">Tampa Bay</button>
+          <button class="dropdown-item locale-item" type="button" value="New York City">New York City</button>
+          <button class="dropdown-item locale-item" type="button" value="577">Melbourne</button>
+        </div>
+
+      </div>
+
+      <br/><br/>
+    
+      <button type="button" class="btn btn-dark mb-5" id="userSubmit">Submit</button>
 
     </div>
 
@@ -175,9 +212,6 @@
 
     <!--JQUERY MINI-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous"></script>
-    <!--BS JQUERY-->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
       crossorigin="anonymous"></script>
     <!--BS POPPER-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
