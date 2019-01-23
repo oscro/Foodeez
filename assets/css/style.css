@@ -20,6 +20,9 @@
   padding: 125px; 
 }
 
+h1{
+  float: right;
+}
 
 
 .content {
@@ -36,11 +39,13 @@
 }
   
   .content .logo2 {
-    height: 900px;
-    width: 900px;
-    margin-top: -15rem;
-   text-align: center;
- float: right;
+    height: auto;
+    width: auto;
+    margin-top: -23rem;
+    float: right;
+    margin-right: -525px;
+
+  
    
     
  
