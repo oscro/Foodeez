@@ -1,36 +1,120 @@
-#logo{
-   position: relative;
-   left: 100px;
-    width: 600px;
-    height: 600px;
-   
-}
-p{
-    text-align: center;
-}
-.jumbotron {
-    background-image:url('https://i.pinimg.com/originals/ec/c7/a4/ecc7a4f021aab13bf5197543d291adf7.jpg');
-    height:550px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-bottom:1px solid black;
-}
-.jumbotron .container {
-    position:relative;
-    top:100px;
-}
+
 
 #services{
     background-color: whitesmoke;
 }
 
 .intro{
-    padding: 50px;
-    text-align: center;
+    padding: 90px;
+   
 }
 .start{
     padding: 50px;
-    text-align: center;
+   
+} 
+.info{
+    padding: 90px; 
 }
+
+#text{
+  padding: 125px; 
+}
+
+
+
+.content {
+    position: absolute;
+    z-index: 1;
+    top: 10%;
+    left: 50%;
+    margin-top: 105px;
+    margin-left: -145px;
+    width: 300px;
+    height: 350px;
+    text-align: center;
+    transition: all 1000ms;
+}
+  
+  .content .logo2 {
+    height: 900px;
+    width: 900px;
+    margin-top: -15rem;
+   text-align: center;
+ float: right;
+   
+    
+ 
+  }
+  .content .logotext{
+     
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 40px;
+      color: whitesmoke;
+     
+    
+  }
+ 
+  .pic{
+    position:relative;
+    opacity:0.80;
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-image:url('https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    min-height:400px;
+  }
+  .movie{
+    position:relative;
+    opacity:0.80;
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-image:url('https://images.unsplash.com/photo-1512149177596-f817c7ef5d4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=690&q=80');
+    min-height:400px;
+  }
+  .section-light{
+    background-color:#f4f4f4;
+    color:#666;
+  }
+  .pictext, .movietext{
+    position:absolute;
+    top:50%;
+    width:100%;
+    text-align:center;
+    color:#000;
+    font-size:27px;
+    letter-spacing:8px;
+    text-transform:uppercase;
+   
+  }
+  
+  .pictext .border{
+    color:#fff;
+    padding:15px;
+  }
+  
+  .ptext .border.trans{
+    background-color:transparent;
+  }
+  .movietext .border{
+    color:#fff;
+    padding:15px;
+  }
+  
+  .movietext .border.trans{
+    background-color:transparent;
+  }
+  .carousel-inner{
+      height: 825px;
+      width: cover; 
+      opacity: 0.80;
+  }
+  
+
+
+  
+ 
 
 
