@@ -1,17 +1,31 @@
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyAHonm8D-x8rwzlmmREf8PXIMCixe7h-AA",
+  authDomain: "foodeez-38531.firebaseapp.com",
+  databaseURL: "https://foodeez-38531.firebaseio.com",
+  projectId: "foodeez-38531",
+  storageBucket: "foodeez-38531.appspot.com",
+  messagingSenderId: "502818216303"
+};
+
+firebase.initializeApp(config);
+
+var database = firebase.database();
+
 console.log("This js is all linked up!");
 
 var cuisine = "";
 var locale = "";
 
-$(".cuisine-item").on("click", function(){
+$(".cuisine-item").on("click", function() {
   console.log($(this).val());
   $("#cuisineSearchBar").val($(this).val());
-})
+});
 
-$(".locale-item").on("click", function(){
+$(".locale-item").on("click", function() {
   console.log($(this).val());
   $("#localeSearchBar").val($(this).val());
-})
+});
 
 $("#userSubmit").on("click", function(e) {
   event.preventDefault(e);
@@ -30,8 +44,7 @@ $("#userSubmit").on("click", function(e) {
   $.ajax({
     method: "GET",
     crossDomain: true,
-    url:
-      "https://developers.zomato.com/api/v2.1/locations?query=" + locale,
+    url: "https://developers.zomato.com/api/v2.1/locations?query=" + locale,
     dataType: "json",
     async: true,
     headers: {
@@ -47,7 +60,10 @@ $("#userSubmit").on("click", function(e) {
         method: "GET",
         crossDomain: true,
         url:
-          "https://developers.zomato.com/api/v2.1/search?entity_id=" + locale + "&entity_type=city&q=" +  cuisine,
+          "https://developers.zomato.com/api/v2.1/search?entity_id=" +
+          locale +
+          "&entity_type=city&q=" +
+          cuisine,
         dataType: "json",
         async: true,
         headers: {
@@ -67,7 +83,6 @@ $("#userSubmit").on("click", function(e) {
           cuisine = "";
           $("#cuisineSearchBar").val("");
           $("#localeSearchBar").val("");
-
         },
 
         error: function() {
@@ -75,7 +90,7 @@ $("#userSubmit").on("click", function(e) {
         }
       });
     },
-    
+
     error: function() {
       console.log("error");
     }

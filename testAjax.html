@@ -3,7 +3,7 @@
 <html lang="en-us">
   <head>
     <meta charset="utf-8" />
-    <title>Foodeez</title>
+    <title>Test ajax</title>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -27,71 +27,24 @@
       integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
       crossorigin="anonymous"
     />
-
-    <!--FIREBASE LINK-->
+    <!--FIREBASE JS-->
     <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
-
-
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyCEp43oNAFnbMYhTepy_dDeefOJm2zIJjU",
-        authDomain: "projectone-f0122.firebaseapp.com",
-        databaseURL: "https://projectone-f0122.firebaseio.com",
-        projectId: "projectone-f0122",
-        storageBucket: "",
-        messagingSenderId: "339159221087"
-      };
-      firebase.initializeApp(config);
-
-      var database = firebase.database();
-
-    </script>
-
-
     <!--OUR CSS-->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
   </head>
 
   <body>
-    <nav
-      class="navbar navbar-expand-lg fixed-top navbar-light bg-light"
-      id="navbar"
-    >
-      <a class="navbar-brand" href="#"></a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#">Home</a>
-          <a class="nav-item nav-link" href="#">Restaurants</a>
-          <a class="nav-item nav-link" href="#"></a>
-          <a class="nav-item nav-link" href="#"></a>
-        </div>
-      </div>
-    </nav>
-    <br />
-
-    <div class="jumbotron jumbotron-fluid" id="jumbo">
-      <p><img src="assets/logo_transparent.png" id="logo" /></p>
-    </div>
-
+    
+    <!--Search bar for cuisine-->
     <div class="btn-group">
       
+      <!--Actual cuisine form input-->
       <div class="input-group">
         <input type="text" class="form-control" id="cuisineSearchBar" placeholder="Search a cuisine" aria-label="Cuisine Search" />
         <div class="input-group-append" id="button-addon"></div>
       </div>
 
+      <!--Button next to form that acts as a dropdown-->
       <button
         type="button"
         class="btn btn-dark dropdown-toggle dropdown-toggle-split"
@@ -101,6 +54,8 @@
       >
         <span class="sr-only">Toggle Dropdown</span>
       </button>
+
+      <!--This is what is displayed in the dropdown-->
       <div class="dropdown-menu" id="cuisineSelectorDropdown">
         <button class="dropdown-item cuisine-item" type="button" value="Japanese">Japanese</a>
         <button class="dropdown-item cuisine-item" type="button" value="Hamburger">Hamburger</button>
@@ -112,13 +67,16 @@
 
     <br/><br/>
 
+    <!--Search bar for cities-->
     <div class="btn-group">
       
+        <!--Actual city form input-->
         <div class="input-group">
-          <input type="text" class="form-control" id="localeSearchBar" placeholder="Search a locale" aria-label="Locale Search" />
+          <input type="text" class="form-control" id="localeSearchBar" placeholder="Enter a City" aria-label="Locale Search" />
           <div class="input-group-append" id="button-addon"></div>
         </div>
   
+        <!--Button next to form that acts as a dropdown-->
         <button
           type="button"
           class="btn btn-dark dropdown-toggle dropdown-toggle-split"
@@ -128,19 +86,21 @@
         >
           <span class="sr-only">Toggle Dropdown</span>
         </button>
+
+        <!--This is what is displayed in the dropdown-->
         <div class="dropdown-menu" id="localeSelectorDropdown">
           <button class="dropdown-item locale-item" type="button" value="Seattle">Seattle</a>
-          <button class="dropdown-item locale-item" type="button" value="Los Angeles">Los Angeles</button>
-          <button class="dropdown-item locale-item" type="button" value="Boston">Boston</button>
+          <button class="dropdown-item locale-item" type="button" value="Orlando">Orlando</button>
+          <button class="dropdown-item locale-item" type="button" value="Tampa Bay">Tampa Bay</button>
           <button class="dropdown-item locale-item" type="button" value="New York City">New York City</button>
-          <button class="dropdown-item locale-item" type="button" value="Austin">Austin</button>
+          <button class="dropdown-item locale-item" type="button" value="577">Melbourne</button>
         </div>
 
     </div>
 
     <br/><br/>
 
-    <div class="btn-group">
+    <!-- <div class="btn-group">
       
       <div class="input-group">
         <input type="text" class="form-control" id="recipeSearchBar" placeholder="Search a cuisine" aria-label="Recipe Search" />
@@ -163,19 +123,9 @@
         <button class="dropdown-item cuisine-item" type="button" value="Salad">Salad</button>
         <button class="dropdown-item cuisine-item" type="button" value="Vegan">Vegan</button>
       </div>
-    </div>
+    </div> -->
 
     <br/><br/>
-
-    <!-- <div class="form-group">
-      <select class="form-control" id="localeSelector">
-        <option value="Seattle">Seattle</option>
-        <option value="Los Angeles">Los Angeles</option>
-        <option value="Boston">Boston</option>
-        <option value="New York City">New York</option>
-        <option value="Austin">Austin</option>
-      </select>
-    </div> -->
 
     <button type="button" class="btn btn-dark mb-5" id="userSubmit">Submit</button>
 
