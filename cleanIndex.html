@@ -31,6 +31,9 @@
     />
     <!--FIREBASE JS-->
     <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+    <!--FIREBASE AUTHENTICATION-->
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
     <!--OUR CSS-->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
     <!--BS CSS-->
@@ -58,6 +61,18 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
   </head>
   <body>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="signInModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="firebaseui-auth-container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!--Navbar with "Welcome to Foodeez" text-->
     <nav
       class="navbar navbar-expand-lg fixed-top navbar-light bg-light"
@@ -75,13 +90,16 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signInModal">
+        Sign In
+      </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-item nav-link active" href="#">Welcome to Foodeez</a>
         </div>
       </div>
     </nav>
-    <!--End Navbar-->
+    <!--End Navbar-->      
 
     <header class="showcase">
       <div class="content">
@@ -253,74 +271,74 @@
 
         <div class="col-12" id="restaurantClick">
 
-            <!--Search bar for cuisine-->
-            <div class="btn-group">
+          <!--Search bar for cuisine-->
+          <div class="btn-group">
                 
-                <!--Actual cuisine form input-->
-                <div class="input-group">
-                    <input type="text" class="form-control" id="cuisineSearchBar" placeholder="Search a cuisine" aria-label="Cuisine Search" />
-                    <div class="input-group-append" id="button-addon"></div>
-                </div>
-        
-                <!--Button next to form that acts as a dropdown-->
-                <button
-                    type="button"
-                    class="btn btn-dark dropdown-toggle dropdown-toggle-split"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                >
-                    <span class="sr-only">Toggle Dropdown</span>
-                </button>
-        
-                <!--This is what is displayed in the dropdown-->
-                <div class="dropdown-menu" id="cuisineSelectorDropdown">
-                    <button class="dropdown-item cuisine-item" type="button" value="Japanese">Japanese</a>
-                    <button class="dropdown-item cuisine-item" type="button" value="Hamburger">Hamburger</button>
-                    <button class="dropdown-item cuisine-item" type="button" value="Pizza">Pizza</button>
-                    <button class="dropdown-item cuisine-item" type="button" value="Italian">Italian</button>
-                    <button class="dropdown-item cuisine-item" type="button" value="Vegan">Vegan</button>
-                </div>
-        
+            <!--Actual cuisine form input-->
+            <div class="input-group">
+              <input type="text" class="form-control" id="cuisineSearchBar" placeholder="Search a cuisine" aria-label="Cuisine Search" />
+              <div class="input-group-append" id="button-addon"></div>
             </div>
         
-            <!--Search bar for cities-->
-            <div class="btn-group">
+            <!--Button next to form that acts as a dropdown-->
+            <button
+              type="button"
+              class="btn btn-dark dropdown-toggle dropdown-toggle-split"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+        
+            <!--This is what is displayed in the dropdown-->
+            <div class="dropdown-menu" id="cuisineSelectorDropdown">
+              <button class="dropdown-item cuisine-item" type="button" value="Japanese">Japanese</a>
+              <button class="dropdown-item cuisine-item" type="button" value="Hamburger">Hamburger</button>
+              <button class="dropdown-item cuisine-item" type="button" value="Pizza">Pizza</button>
+              <button class="dropdown-item cuisine-item" type="button" value="Italian">Italian</button>
+              <button class="dropdown-item cuisine-item" type="button" value="Vegan">Vegan</button>
+            </div>
+        
+          </div>
+        
+          <!--Search bar for cities-->
+          <div class="btn-group">
           
-                <!--Actual city form input-->
-                <div class="input-group">
-                    <input type="text" class="form-control" id="localeSearchBar" placeholder="Enter a City" aria-label="Locale Search" />
-                    <div class="input-group-append" id="button-addon"></div>
-                </div>
-        
-                <!--Button next to form that acts as a dropdown-->
-                <button
-                    type="button"
-                    class="btn btn-dark dropdown-toggle dropdown-toggle-split"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                >
-                    <span class="sr-only">Toggle Dropdown</span>
-                </button>
-        
-                <!--This is what is displayed in the dropdown-->
-                <div class="dropdown-menu" id="localeSelectorDropdown">
-                    <button class="dropdown-item locale-item" type="button" value="Seattle">Seattle</a>
-                    <button class="dropdown-item locale-item" type="button" value="Orlando">Orlando</button>
-                    <button class="dropdown-item locale-item" type="button" value="Tampa Bay">Tampa Bay</button>
-                    <button class="dropdown-item locale-item" type="button" value="New York City">New York City</button>
-                    <button class="dropdown-item locale-item" type="button" value="Melbourne">Melbourne</button>
-                </div>
-        
+            <!--Actual city form input-->
+            <div class="input-group">
+              <input type="text" class="form-control" id="localeSearchBar" placeholder="Enter a City" aria-label="Locale Search" />
+              <div class="input-group-append" id="button-addon"></div>
             </div>
+        
+            <!--Button next to form that acts as a dropdown-->
+            <button
+              type="button"
+              class="btn btn-dark dropdown-toggle dropdown-toggle-split"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+        
+            <!--This is what is displayed in the dropdown-->
+            <div class="dropdown-menu" id="localeSelectorDropdown">
+              <button class="dropdown-item locale-item" type="button" value="Seattle">Seattle</a>
+              <button class="dropdown-item locale-item" type="button" value="Orlando">Orlando</button>
+              <button class="dropdown-item locale-item" type="button" value="Tampa Bay">Tampa Bay</button>
+              <button class="dropdown-item locale-item" type="button" value="New York City">New York City</button>
+              <button class="dropdown-item locale-item" type="button" value="Melbourne">Melbourne</button>
+            </div>
+        
+          </div>
                 
-            <button type="button" class="btn btn-dark my-5" id="userSubmit">Submit</button>
+          <button type="button" class="btn btn-dark my-5" id="userSubmit">Submit</button>
         
         </div>
-
       </div>
       <!--End Search Container Row-->
+
     </div>
     <!--End Container-fluid Div-->
 
