@@ -153,6 +153,7 @@ function toggleRecipe() {
   } else if (x.style.display === "block") {
 
     x.style.display = "none";
+    $("#resultDiv").text("");
 
   }
 
@@ -183,10 +184,12 @@ function toggleRestaurant() {
   if (y.style.display === "none") {
 
     y.style.display = "block";
+    $("#resultDiv").text("");
 
   } else {
 
     y.style.display = "none";
+    $("#resultDiv").text("");
 
   }
 
