@@ -61,22 +61,22 @@ h1{
  
   .pic{
     position:relative;
-    opacity:0.80;
+    opacity:0.85;
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-image:url('https://images.pexels.com/photos/5938/food-salad-healthy-lunch.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    min-height:400px;
+  }
+  .movie{
+    position:relative;
+    opacity:0.85;
     background-position:center;
     background-size:cover;
     background-repeat:no-repeat;
     background-attachment:fixed;
     background-image:url('https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
-    min-height:400px;
-  }
-  .movie{
-    position:relative;
-    opacity:0.80;
-    background-position:center;
-    background-size:cover;
-    background-repeat:no-repeat;
-    background-attachment:fixed;
-    background-image:url('https://images.unsplash.com/photo-1512149177596-f817c7ef5d4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=690&q=80');
     min-height:400px;
   }
   .section-light{
