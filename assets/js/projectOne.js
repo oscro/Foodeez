@@ -35,8 +35,8 @@ function toggleSignIn() {
     // [END signout]
   } else {
     var email = document.getElementById("userEmail").value;
-    var password =document.getElementById("userPassword").value;
-    if(email.length < 4) {
+    var password = document.getElementById("userPassword").value;
+    if (email.length < 4) {
       console.log("Please enter an email address.");
       return;
     }
@@ -46,20 +46,23 @@ function toggleSignIn() {
     }
     // Sign in with email and password
     // [START authwithemail]
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-      // Errors here
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // [START_EXCLUDE]
-      if (errorCode === "auth/wrong-password") {
-        console.log("Wrong password.");
-      } else {
-        console.log(errorMessage);
-      }
-      console.log(error);
-      document.getElementById("signInButton").disabled = false;
-      // [END_EXCLUDE]
-    });
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .catch(function(error) {
+        // Errors here
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // [START_EXCLUDE]
+        if (errorCode === "auth/wrong-password") {
+          console.log("Wrong password.");
+        } else {
+          console.log(errorMessage);
+        }
+        console.log(error);
+        document.getElementById("signInButton").disabled = false;
+        // [END_EXCLUDE]
+      });
     // [END authwithemail]
   }
   document.getElementById("signInButton").disabled = true;
@@ -80,27 +83,29 @@ function handleSignUp() {
 
   // Sign in with email and password
   // [START createwithemail]
-  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-    // Error here
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // [START_EXCLUDE]
-    if (errorCode == "auth/weak-password") {
-      console.log("Weak password.");
-    } else {
-      console.log(errorMessage);
-    }
-    console.log(error);
-    // [END_EXCLUDE]
-  });
+  firebase
+    .auth()
+    .createUserWithEmailAndPassword(email, password)
+    .catch(function(error) {
+      // Error here
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // [START_EXCLUDE]
+      if (errorCode == "auth/weak-password") {
+        console.log("Weak password.");
+      } else {
+        console.log(errorMessage);
+      }
+      console.log(error);
+      // [END_EXCLUDE]
+    });
   // [END createwithemail]
 
   var addDataBase = database.push();
 
   addDataBase.set({
-    email: email,
+    email: email
   });
-
 }
 
 // initApp handles setting up UI event listeners and registering Firebase auth listeners
@@ -115,14 +120,14 @@ function initApp() {
       var uid = user.uid;
       var providerData = user.providerData;
       // [START_EXCLUDE]
-      document.getElementById("signInButton").textContent = ("Sign Out");
-      document.getElementById("signInHome").textContent = ("Sign Out");
-      // [END_EXCLUDE]    
+      document.getElementById("signInButton").textContent = "Sign Out";
+      document.getElementById("signInHome").textContent = "Sign Out";
+      // [END_EXCLUDE]
     } else {
       // User is signed out
       // [START_EXCLUDE]
-      document.getElementById("signInButton").textContent = ("Sign In");
-      document.getElementById("signInHome").textContent = ("Sign In");
+      document.getElementById("signInButton").textContent = "Sign In";
+      document.getElementById("signInHome").textContent = "Sign In";
       // [END_EXCLUDE]
     }
     document.getElementById("signInButton").disabled = false;
@@ -130,17 +135,33 @@ function initApp() {
     console.log(displayName);
     console.log(email);
     if (email !== undefined) {
-      document.getElementById("signInHome").textContent = (email);
+      document.getElementById("signInHome").textContent = email;
+      document.getElementById("modal-body").innerHTML = "You're all signed in";
+      $("#signUpButton").attr("disabled");
     } else {
-      document.getElementById("signInHome").textContent = ("Sign In")
+      document.getElementById("signInHome").textContent = "Sign In";
+      document.getElementById("modal-body").innerHTML =
+        "<form>" +
+        "<div class='form-group'>" +
+        "<label for='email' class='col-form-label'>Email</label>" +
+        "<input type='email' class='form-control' id='userEmail'/>" +
+        "</div>" +
+        "<div class='form-group'>" +
+        "<label for='password' class='col-form-label'>Password</label>" +
+        "<input type='text' class='form-control' id='userPassword'/>" +
+        "</div>" +
+        "</form>";
     }
     console.log(uid);
     console.log(providerData);
-
   });
   // [END authstatelistener]
-  document.getElementById("signInButton").addEventListener("click", toggleSignIn, false);
-  document.getElementById("signUpButton").addEventListener("click", handleSignUp, false);
+  document
+    .getElementById("signInButton")
+    .addEventListener("click", toggleSignIn, false);
+  document
+    .getElementById("signUpButton")
+    .addEventListener("click", handleSignUp, false);
 }
 window.onload = function() {
   initApp();
@@ -223,7 +244,18 @@ $("#userSubmit").on("click", function(e) {
             var cost = rest.average_cost_for_two;
             var location = rest.location.address;
             var rating = rest.user_rating.aggregate_rating;
-            $(newColumn).html(name + "<br/>" + "$" + cost + " for two" + "<br/>" + location + "<br/>" + "Rating " + rating);
+            $(newColumn).html(
+              name +
+                "<br/>" +
+                "$" +
+                cost +
+                " for two" +
+                "<br/>" +
+                location +
+                "<br/>" +
+                "Rating " +
+                rating
+            );
 
             $("#resultDiv").append(newRow);
             $(newRow).append(newColumn);
@@ -231,7 +263,6 @@ $("#userSubmit").on("click", function(e) {
 
           $("#cuisineSearchBar").val("");
           $("#localeSearchBar").val("");
-
 
           // $("#resultDiv").html(restOne.name + "<br/>" + "$" + restOne.average_cost_for_two + " for two" + "<br/>" + restOne.location.address + "<br/>" + "Rating " + restOne.user_rating.aggregate_rating);
         },
