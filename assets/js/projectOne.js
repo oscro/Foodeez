@@ -129,6 +129,11 @@ function initApp() {
 
     console.log(displayName);
     console.log(email);
+    if (email !== undefined) {
+      document.getElementById("signInHome").textContent = (email);
+    } else {
+      document.getElementById("signInHome").textContent = ("Sign In")
+    }
     console.log(uid);
     console.log(providerData);
 
