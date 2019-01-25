@@ -112,26 +112,46 @@ $(document).ready(function () {
 
 
 
+// function displayObjectArry(object) {
+
+//   var recipeShenan = $("<ul>");
+
+//   var recipeImg = $("<img src='" + object.hits[0].recipe.image + "'>");
+
+//   for (var i = 0; i < object.hits[0].recipe.ingredients.length; i++) {
+
+//     var recipeLi = $("<li>")
+
+//     recipeLi.html(object.hits[0].recipe.ingredients[i].text);
+
+//     $(recipeShenan).append(recipeLi);
+
+//   }
+
+//   $("#resultDiv").append(recipeImg);
+
+//   $("#resultDiv").append(recipeShenan);
+
+// };
+
 function displayObjectArry(object) {
-
-  var recipeShenan = $("<ul>");
-
-  var recipeImg = $("<img src='" + object.hits[0].recipe.image + "'>");
-
+  var newRow = $("<div>").attr("class", "row bg-light text-center");
+  var recipeImg = $("<img src='" + object.hits[0].recipe.image + "' class='border border-dark'>");
+  var newColumn = $("<div>").attr("class", "col-6");
+  var secondNewColumn = $("<div>").attr("class", "col-6");
   for (var i = 0; i < object.hits[0].recipe.ingredients.length; i++) {
 
-    var recipeLi = $("<li>")
-
-    recipeLi.html(object.hits[0].recipe.ingredients[i].text);
-
-    $(recipeShenan).append(recipeLi);
+    var ingredient = object.hits[0].recipe.ingredients[i].text;
+    console.log(ingredient);
+    var textHolder = $("<p>");
+    $(textHolder).html(ingredient);
+    $(newColumn).append(textHolder);
 
   }
-
-  $("#resultDiv").append(recipeImg);
-
-  $("#resultDiv").append(recipeShenan);
-
+  $("#resultDiv").append(newRow);
+  $(newRow).append(secondNewColumn)
+  $(secondNewColumn).append(recipeImg);
+  $(newRow).append(newColumn);
 };
 
 
