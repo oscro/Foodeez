@@ -12,45 +12,134 @@ var config = {
 
 firebase.initializeApp(config);
 
-// Initialize the FirebaseUI Widget using Firebase.
-var ui = new firebaseui.auth.AuthUI(firebase.auth());
+var database = firebase.database().ref("/users");
 
-var uiConfig = {
-  callbacks: {
-    signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-      // User successfully signed in.
-      // Return type determines whether we continue the redirect automatically
-      // or whether we leave that to developer to handle.
-      return true;
-    },
-    uiShown: function() {
-      // The widget is rendered.
-      // Hide the loader.
-    }
-  },
-  // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-  signInFlow: 'popup',
-  signInSuccessUrl: 'https://davidweid.github.io/First-BC-Project/',
-  signInOptions: [
-    firebase.auth.EmailAuthProvider.PROVIDER_ID
-  ]
-};
+var userNumber;
 
-ui.start('#firebaseui-auth-container', uiConfig);
+// var user = firebase.auth().currentUser;
+// console.log(user);
 
-//Sign up new users
-firebase.auth().createUserWithEmailAndPassword (email, password).catch(function(error) {
-  var errorCode = error.code;
-  var errorMessage = error.message;
+// var name, email, uid;
 
-  if (errorCode == "auth/weak-password") {
-    console.log("Password too weak");
+// if (user != null) {
+//   name = user.displayName;
+//   email = user.email;
+//   uid = user.uid;
+// }
+
+// Sign In button click
+function toggleSignIn() {
+  if (firebase.auth().currentUser) {
+    // [START signout]
+    firebase.auth().signOut();
+    // [END signout]
   } else {
-    console.log(errorMessage);
+    var email = document.getElementById("userEmail").value;
+    var password =document.getElementById("userPassword").value;
+    if(email.length < 4) {
+      console.log("Please enter an email address.");
+      return;
+    }
+    if (password.length < 4) {
+      console.log("Please enter a password.");
+      return;
+    }
+    // Sign in with email and password
+    // [START authwithemail]
+    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+      // Errors here
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // [START_EXCLUDE]
+      if (errorCode === "auth/wrong-password") {
+        console.log("Wrong password.");
+      } else {
+        console.log(errorMessage);
+      }
+      console.log(error);
+      document.getElementById("signInButton").disabled = false;
+      // [END_EXCLUDE]
+    });
+    // [END authwithemail]
   }
-})
+  document.getElementById("signInButton").disabled = true;
+}
 
-var database = firebase.database().ref("/favorites");
+// Sign Up button click
+function handleSignUp() {
+  var email = document.getElementById("userEmail").value;
+  var password = document.getElementById("userPassword").value;
+  if (email.length < 4) {
+    console.log("Enter an email address.");
+    return;
+  }
+  if (password.length < 4) {
+    console.log("Enter a password.");
+    return;
+  }
+
+  // Sign in with email and password
+  // [START createwithemail]
+  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+    // Error here
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // [START_EXCLUDE]
+    if (errorCode == "auth/weak-password") {
+      console.log("Weak password.");
+    } else {
+      console.log(errorMessage);
+    }
+    console.log(error);
+    // [END_EXCLUDE]
+  });
+  // [END createwithemail]
+
+  var addDataBase = database.push();
+
+  addDataBase.set({
+    email: email,
+  });
+
+}
+
+// initApp handles setting up UI event listeners and registering Firebase auth listeners
+function initApp() {
+  // Listen for auth state change
+  // [START authstatelistener]
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User signed in
+      var displayName = user.displayName;
+      var email = user.email;
+      var uid = user.uid;
+      var providerData = user.providerData;
+      // [START_EXCLUDE]
+      document.getElementById("signInButton").textContent = ("Sign Out");
+      document.getElementById("signInHome").textContent = ("Sign Out");
+      // [END_EXCLUDE]    
+    } else {
+      // User is signed out
+      // [START_EXCLUDE]
+      document.getElementById("signInButton").textContent = ("Sign In");
+      document.getElementById("signInHome").textContent = ("Sign In");
+      // [END_EXCLUDE]
+    }
+    document.getElementById("signInButton").disabled = false;
+
+    console.log(displayName);
+    console.log(email);
+    console.log(uid);
+    console.log(providerData);
+
+  });
+  // [END authstatelistener]
+  document.getElementById("signInButton").addEventListener("click", toggleSignIn, false);
+  document.getElementById("signUpButton").addEventListener("click", handleSignUp, false);
+}
+window.onload = function() {
+  initApp();
+};
 
 var cuisine = "";
 var locale = "";
@@ -119,8 +208,27 @@ $("#userSubmit").on("click", function(e) {
           console.log("Rating " + restOne.user_rating.aggregate_rating);
           console.log("- - - - - - - - - -");
           cuisine = "";
+
+          var newRow = $("<div>").attr("class", "row bg-light text-center");
+
+          for (var i = 0; i < 3; i++) {
+            var newColumn = $("<div>").attr("class", "col-4");
+            var rest = result.restaurants[i].restaurant;
+            var name = rest.name;
+            var cost = rest.average_cost_for_two;
+            var location = rest.location.address;
+            var rating = rest.user_rating.aggregate_rating;
+            $(newColumn).html(name + "<br/>" + "$" + cost + " for two" + "<br/>" + location + "<br/>" + "Rating " + rating);
+
+            $("#resultDiv").append(newRow);
+            $(newRow).append(newColumn);
+          }
+
           $("#cuisineSearchBar").val("");
           $("#localeSearchBar").val("");
+
+
+          // $("#resultDiv").html(restOne.name + "<br/>" + "$" + restOne.average_cost_for_two + " for two" + "<br/>" + restOne.location.address + "<br/>" + "Rating " + restOne.user_rating.aggregate_rating);
         },
 
         error: function() {
