@@ -24,6 +24,33 @@ h1{
   float: right;
 }
 
+#bottom{
+  padding: 30px;
+}
+
+
+
+hr.line {
+	border-top: 1px solid #8c8b8b;
+	border-bottom: 1px solid #fff;
+}
+hr.line:after {
+	content: '';
+	display: block;
+	margin-top: 2px;
+	border-top: 1px solid #8c8b8b;
+	border-bottom: 1px solid #fff;
+}
+
+body{
+  font-family: 'Dosis',sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 1px;
+ 
+  background-color: whitesmoke;
+
+}
 
 .content {
     position: absolute;
@@ -52,7 +79,7 @@ h1{
   }
   .content .logotext{
      
-      font-family: 'Courier New', Courier, monospace;
+      /* font-family: 'Courier New', Courier, monospace; */
       font-size: 40px;
       color: whitesmoke;
      
@@ -66,7 +93,7 @@ h1{
     background-size:cover;
     background-repeat:no-repeat;
     background-attachment:fixed;
-    background-image:url('https://images.pexels.com/photos/5938/food-salad-healthy-lunch.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    background-image:url('https://cdn.pixabay.com/photo/2016/02/05/15/34/pasta-1181189_1280.jpg');
     min-height:400px;
   }
   .movie{
@@ -80,7 +107,7 @@ h1{
     min-height:400px;
   }
   .section-light{
-    background-color:#f4f4f4;
+    background-color:whitesmoke;
     color:#666;
   }
   .pictext, .movietext{
@@ -92,6 +119,7 @@ h1{
     font-size:27px;
     letter-spacing:8px;
     text-transform:uppercase;
+    font-weight: bold;
    
   }
   
@@ -116,7 +144,60 @@ h1{
       width: cover; 
       opacity: 0.80;
   }
-  
+
+  .context-dark, .bg-gray-dark, .bg-primary {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: #383838 !important;
+}
+
+.footer-classic a, .footer-classic a:focus, .footer-classic a:active {
+    color: #ffffff;
+}
+.nav-list li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.nav-list li a:hover:before {
+    margin-left: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+ul, ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.social-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 23px;
+    font:'Dosis',sans-serif;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+}
+.social-container .col {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.nav-list li a:before {
+    content: "\f14f";
+    font: 'Dosis',sans-serif;
+    color: #4d6de6;
+    display: inline-block;
+    vertical-align: baseline;
+    margin-left: -28px;
+    margin-right: 7px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .22s ease;
+}
+.col-md-4{
+  padding-top: 10px;
+}
 
 
   

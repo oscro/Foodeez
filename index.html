@@ -1,399 +1,380 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8" />
 
-    <title>Foodeez</title>
+<head>
+  <meta charset="utf-8" />
 
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+  <title>Foodeez</title>
 
-    <!--BS CSS-->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-      crossorigin="anonymous"
-    />
-    <!--FONT CSS-->
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto+Mono"
-      rel="stylesheet"
-    />
-    <!--FONT AWESOME CSS-->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-      crossorigin="anonymous"
-    />
-    <!--FIREBASE JS-->
-    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
-    <!--FIREBASE AUTHENTICATION-->
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
-    <!--OUR CSS-->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-    <!--BS CSS-->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-      crossorigin="anonymous"
-    />
-    <!--FONT CSS-->
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto+Mono"
-      rel="stylesheet"
-    />
-    <!--FONT AWESOME CSS-->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-      crossorigin="anonymous"
-    />
-    <!--FIREBASE JS-->
-    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
-    <!--OUR CSS-->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-    <!--Zendesk Chat Script-->
-    <script type="text/javascript">
-      window.$zopim||(function(d,s){
-        var z=$zopim=function(c){z._.push(c)},$=z.s=
-          d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){
-            z.set.
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!--BS CSS-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+    crossorigin="anonymous" />
+  <!--FONT CSS-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet" />
+  <!--FONT AWESOME CSS-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous" />
+  <!--FIREBASE JS-->
+  <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+  <!--FIREBASE AUTHENTICATION-->
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+  <!--OUR CSS-->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+  <!--BS CSS-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+    crossorigin="anonymous" />
+  <!--FONT CSS-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet" />
+  <!--FONT AWESOME CSS-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous" />
+  <!--FIREBASE JS-->
+  <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+  <!--OUR CSS-->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+  <!--Zendesk Chat Script-->
+  <script type="text/javascript">
+    window.$zopim || (function (d, s) {
+      var z = $zopim = function (c) { z._.push(c) }, $ = z.s =
+        d.createElement(s), e = d.getElementsByTagName(s)[0]; z.set = function (o) {
+          z.set.
             _.push(o)
-          };z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
-        $.src="https://v2.zopim.com/?6KXDbdqmjAv8mpUwbni4jYxqKMT30NhB"; z.t=+new Date; $.
-          type="text/javascript";e.parentNode.insertBefore($,e)
-      })(document,"script");
-    </script>  
-    
-  </head>
-  <body>
-    
-    <!-- Modal -->
-    <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="signInModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="signInModalLabel">Sign In</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body" id="modal-body">
-            <form>
-              <div class="form-group">
-                <label for="email" class="col-form-label">Email</label>
-                <input type="email" class="form-control" id="userEmail"/>
-              </div>
-              <div class="form-group">
-                <label for="password" class="col-form-label">Password</label>
-                <input type="text" class="form-control" id="userPassword"/>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" id="signInButton">Sign In</button>
-            <button type="button" class="btn btn-secondary" id="signUpButton">Sign Up</button>
-            <button type="button" class="btn btn-primary" id="closeModal" data-dismiss="modal">Close</button>
-          </div>
+        }; z._ = []; z.set._ = []; $.async = !0; $.setAttribute("charset", "utf-8");
+      $.src = "https://v2.zopim.com/?6KXDbdqmjAv8mpUwbni4jYxqKMT30NhB"; z.t = +new Date; $.
+        type = "text/javascript"; e.parentNode.insertBefore($, e)
+    })(document, "script");
+  </script>
+
+</head>
+
+<body>
+
+  <!-- Modal -->
+  <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="signInModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="signInModalLabel">Sign In</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="email" class="col-form-label">Email</label>
+              <input type="email" class="form-control" id="userEmail" />
+            </div>
+            <div class="form-group">
+              <label for="password" class="col-form-label">Password</label>
+              <input type="text" class="form-control" id="userPassword" />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="signInButton">Sign In</button>
+          <button type="button" class="btn btn-secondary" id="signUpButton">Sign Up</button>
+          <button type="button" class="btn btn-primary" id="closeModal" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
+  </div>
 
-    <!--Navbar with "Welcome to Foodeez" text-->
-    <nav
-      class="navbar navbar-expand-lg fixed-top navbar-light bg-light"
-      id="navbar"
-    >
-      <a class="navbar-brand" href="#"></a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#signInModal" id="signInHome">
-        Sign In
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#">Welcome to Foodeez</a>
+  <!--Navbar with "Welcome to Foodeez" text-->
+  <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light" id="navbar">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#signInModal" id="signInHome">
+      Sign In
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="#">Welcome to Foodeez</a>
+      </div>
+    </div>
+  </nav>
+  <!--End Navbar-->
+
+  <header class="showcase">
+    <div class="content">
+      <div class="logo">
+        <img src="assets/logo_transparent.png" class="logo2" alt="foodeez" />
+      </div>
+    </div>
+    <div id="slide" class="carousel slide" data-ride="carousel" data-interval="5000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://images.pexels.com/photos/1251179/pexels-photo-1251179.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            class="d-block w-100" alt="cook" />
+        </div>
+
+        <div class="carousel-item">
+          <img src="https://images.pexels.com/photos/8313/food-eating-potatoes-beer-8313.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            class="d-block w-100" alt="dine" />
+        </div>
+
+        <div class="carousel-item">
+          <img src="https://news.stonybrook.edu/wp-content/uploads/2018/08/istock-172450143-1024x703.jpg" class="d-block w-100"
+            alt="movie" />
         </div>
       </div>
-    </nav>
-    <!--End Navbar-->      
+    </div>
+  </header>
+  <!--End Showcase Div-->
 
-    <header class="showcase">
-      <div class="content">
-        <div class="logo">
-          <img src="assets/logo_transparent.png" class="logo2" alt="foodeez" />
+
+  <div class="container-fluid">
+
+    <hr class="line">
+
+    <div class="row">
+      <div class="col-12 info bg-light">
+        <p>
+          Whether your relaxing, entertaining or exploring; at Foodeez we believe a great time starts with fantastic
+          food and amazing
+          beverages. Foodeez takes your tastebuds on a tour through either an
+          amazing recipe or top rated local restaurant.
+        </p>
+      </div>
+    </div>
+    <!--End Row Div-->
+    <hr class="line">
+
+    <div class="row">
+      <div class="col-12 pic">
+        <div class="pictext">
+          <span class="border"> Recipe Solutions </span>
         </div>
       </div>
-      <div
-        id="slide"
-        class="carousel slide"
-        data-ride="carousel"
-        data-interval="5000"
-      >
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img
-              src="https://images.pexels.com/photos/1251179/pexels-photo-1251179.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              class="d-block w-100"
-              alt="cook"
-            />
+    </div>
+    <!--End Row Div-->
+    <hr class="line">
+    <div class="row">
+      <div class="col-12 info bg-light">
+        <p>
+          After choosing your cuisine, use our custom recipe search engine to
+          find a great recipe for when you want to stay at home. For a night out, use our restaurant selector to find
+          local, top-rated restaurants.
+        </p>
+      </div>
+    </div>
+    <!--End Row Div-->
+    <hr class="line">
+
+    <div class="row">
+      <div class="col-12 movie">
+        <div class="movietext">
+          <span class="border"> Dinner Solutions </span>
+        </div>
+      </div>
+    </div>
+    <!--End Row Div-->
+    <hr class="line">
+
+    <div class="row text-center">
+      <div class="col-12 info bg-light" id="bottom">
+        <p>Let's Get Started!</p>
+      </div>
+    </div>
+
+    <hr class="line">
+
+    <div class="row mx-auto text-center bg-light pb-5">
+      <div class="col-sm-12 col-md-5" id="recipeClick">
+        <div class="card float-md-right" style="width: 18rem;">
+          <img src="https://www.tastyitaliantravel.com/images/italian-cooking-tours.jpg" class="card-img-top" alt="cook-at-home" />
+          <div class="card-body">
+            <p class="card-text">Choose From Our Amazing List of Recipes!</p>
+          </div>
+        </div>
+        <!--End Card Div-->
+      </div>
+      <!--End Card Column Div-->
+
+      <div class="col-md-2"></div>
+
+      <div class="col-sm-12 col-md-5" id="restaurantClick">
+        <div class="card float-md-left" style="width: 18rem;">
+          <img src="http://studio11design.com/media/JamaicaBay_51-1400x933.jpg" class="card-img-top" alt="restaurant" />
+          <div class="card-body">
+            <p class="card-text">Find An Amazing Restaurant Near You!</p>
+          </div>
+        </div>
+        <!--End Card Div-->
+      </div>
+      <!--End Card Column Div-->
+    </div>
+    <!--End Row Div-->
+
+    <div class="row bg-light mx-auto text-center" id="searchContainer">
+
+      <div class="col-12" id="recipeSearchBox" style="display: none">
+
+        <!--Search Bar for Recipe-->
+        <div class="btn-group">
+
+          <!--Actual Recipe Form Input-->
+          <div class="input-group">
+            <input type="text" class="form-control" id="recipeSearchBar" placeholder="Search a Recipe" aria-label="Recipe Search" />
+            <div class="input-group-append" id="button-addon"></div>
           </div>
 
-          <div class="carousel-item">
-            <img
-              src="https://images.pexels.com/photos/8313/food-eating-potatoes-beer-8313.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              class="d-block w-100"
-              alt="dine"
-            />
+          <!--Button Next-to Form Acts as Dropdown-->
+          <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+
+          <!--This is what is displayed in the dropdown-->
+          <div class="dropdown-menu" id="recipeSelectorDropdown">
+            <button class="dropdown-item recipe-item" type="button" value="Steak">Steak</button>
+            <button class="dropdown-item recipe-item" type="button" value="Chicken">Chicken</button>
+            <button class="dropdown-item recipe-item" type="button" value="Avocado">Avocado</button>
+            <button class="dropdown-item recipe-item" type="button" value="Pasta">Pasta</button>
+            <button class="dropdown-item recipe-item" type="button" value="Fruit">Fruit</button>
           </div>
 
-          <div class="carousel-item">
-            <img
-              src="https://news.stonybrook.edu/wp-content/uploads/2018/08/istock-172450143-1024x703.jpg"
-              class="d-block w-100"
-              alt="movie"
-            />
+        </div>
+        <!--End Button Group-->
+
+        <button type="button" class="btn btn-dark my-5" id="recipeUserSubmit">Submit</button>
+
+      </div>
+      <!--End Column For Recipe Click-->
+
+      <div class="col-12" id="restaurantSearchBox" style="display: none">
+
+        <!--Search bar for cuisine-->
+        <div class="btn-group">
+
+          <!--Actual cuisine form input-->
+          <div class="input-group">
+            <input type="text" class="form-control" id="cuisineSearchBar" placeholder="Search a cuisine" aria-label="Cuisine Search" />
+            <div class="input-group-append" id="button-addon"></div>
           </div>
-        </div>
-      </div>
-    </header>
-    <!--End Showcase Div-->
 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12 info bg-light">
-          <p>
-            Whether your relaxing, entertaining or exploring; we all know the
-            key to a great time starts with fantastic food and amazing
-            beverages. Foodeez takes your tastebuds on a tour through either an
-            amazing recipe or top rated local restaurant.
-          </p>
-        </div>
-      </div>
-      <!--End Row Div-->
+          <!--Button next to form that acts as a dropdown-->
+          <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
 
-      <div class="row">
-        <div class="col-12 pic">
-          <div class="pictext">
-            <span class="border"> Recipe Solutions </span>
-          </div>
-        </div>
-      </div>
-      <!--End Row Div-->
-
-      <div class="row">
-        <div class="col-12 info bg-light">
-          <p>
-            After choosing your cuisine, use our custom recipe search engine to
-            find a great recipe for when you want to stay at home.
-          </p>
-        </div>
-      </div>
-      <!--End Row Div-->
-
-      <div class="row">
-        <div class="col-12 movie">
-          <div class="movietext">
-            <span class="border"> Dinner Solutions </span>
-          </div>
-        </div>
-      </div>
-      <!--End Row Div-->
-
-      <div class="row text-center">
-        <div class="col-12 info bg-light"><p>Let's Get Started!</p></div>
-      </div>
-
-      <div class="row mx-auto text-center bg-light pb-5">
-        <div class="col-sm-12 col-md-5" id="recipeClick">
-          <div class="card float-md-right" style="width: 18rem;">
-            <img
-              src="https://www.tastyitaliantravel.com/images/italian-cooking-tours.jpg"
-              class="card-img-top"
-              alt="cook-at-home"
-            />
-            <div class="card-body">
-              <p class="card-text">Choose From Our Amazing List of Recipes!</p>
-            </div>
-          </div>
-          <!--End Card Div-->
-        </div>
-        <!--End Card Column Div-->
-
-        <div class="col-md-2"></div>
-
-        <div class="col-sm-12 col-md-5" id="restaurantClick">
-          <div class="card float-md-left" style="width: 18rem;">
-            <img
-              src="http://studio11design.com/media/JamaicaBay_51-1400x933.jpg"
-              class="card-img-top"
-              alt="restaurant"
-            />
-            <div class="card-body">
-              <p class="card-text">Find An Amazing Restaurant Near You!</p>
-            </div>
-          </div>
-          <!--End Card Div-->
-        </div>
-        <!--End Card Column Div-->
-      </div>
-      <!--End Row Div-->
-
-      <div class="row bg-light mx-auto text-center" id="searchContainer">
-
-        <div class="col-12" id="recipeSearchBox" style="display: none">
-
-          <!--Search Bar for Recipe-->
-          <div class="btn-group">
-
-            <!--Actual Recipe Form Input-->
-            <div class="input-group">
-              <input
-                type="text"
-                class="form-control"
-                id="recipeSearchBar"
-                placeholder="Search a Recipe"
-                aria-label="Recipe Search"
-              />
-              <div class="input-group-append" id="button-addon"></div>
-            </div>
-
-            <!--Button Next-to Form Acts as Dropdown-->
-            <button
-              type="button"
-              class="btn btn-dark dropdown-toggle dropdown-toggle-split"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              <span class="sr-only">Toggle Dropdown</span>
-            </button>
-
-            <!--This is what is displayed in the dropdown-->
-            <div class="dropdown-menu" id="recipeSelectorDropdown">
-                <button class="dropdown-item recipe-item" type="button" value="Steak">Steak</button>
-                <button class="dropdown-item recipe-item" type="button" value="Chicken">Chicken</button>
-                <button class="dropdown-item recipe-item" type="button" value="Avocado">Avocado</button>
-                <button class="dropdown-item recipe-item" type="button" value="Pasta">Pasta</button>
-                <button class="dropdown-item recipe-item" type="button" value="Fruit">Fruit</button>
-            </div>
-
-          </div>
-          <!--End Button Group-->
-
-          <button type="button" class="btn btn-dark my-5" id="recipeUserSubmit">Submit</button>
-
-        </div>
-        <!--End Column For Recipe Click-->
-
-        <div class="col-12" id="restaurantSearchBox" style="display: none">
-
-          <!--Search bar for cuisine-->
-          <div class="btn-group">
-                
-            <!--Actual cuisine form input-->
-            <div class="input-group">
-              <input type="text" class="form-control" id="cuisineSearchBar" placeholder="Search a cuisine" aria-label="Cuisine Search" />
-              <div class="input-group-append" id="button-addon"></div>
-            </div>
-        
-            <!--Button next to form that acts as a dropdown-->
-            <button
-              type="button"
-              class="btn btn-dark dropdown-toggle dropdown-toggle-split"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              <span class="sr-only">Toggle Dropdown</span>
-            </button>
-        
-            <!--This is what is displayed in the dropdown-->
-            <div class="dropdown-menu" id="cuisineSelectorDropdown">
-              <button class="dropdown-item cuisine-item" type="button" value="Japanese">Japanese</a>
+          <!--This is what is displayed in the dropdown-->
+          <div class="dropdown-menu" id="cuisineSelectorDropdown">
+            <button class="dropdown-item cuisine-item" type="button" value="Japanese">Japanese</a>
               <button class="dropdown-item cuisine-item" type="button" value="Hamburger">Hamburger</button>
               <button class="dropdown-item cuisine-item" type="button" value="Pizza">Pizza</button>
               <button class="dropdown-item cuisine-item" type="button" value="Italian">Italian</button>
               <button class="dropdown-item cuisine-item" type="button" value="Vegan">Vegan</button>
-            </div>
-        
           </div>
-        
-          <!--Search bar for cities-->
-          <div class="btn-group">
-          
-            <!--Actual city form input-->
-            <div class="input-group">
-              <input type="text" class="form-control" id="localeSearchBar" placeholder="Enter a City" aria-label="Locale Search" />
-              <div class="input-group-append" id="button-addon"></div>
-            </div>
-        
-            <!--Button next to form that acts as a dropdown-->
-            <button
-              type="button"
-              class="btn btn-dark dropdown-toggle dropdown-toggle-split"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              <span class="sr-only">Toggle Dropdown</span>
-            </button>
-        
-            <!--This is what is displayed in the dropdown-->
-            <div class="dropdown-menu" id="localeSelectorDropdown">
-              <button class="dropdown-item locale-item" type="button" value="Seattle">Seattle</a>
+
+        </div>
+
+        <!--Search bar for cities-->
+        <div class="btn-group">
+
+          <!--Actual city form input-->
+          <div class="input-group">
+            <input type="text" class="form-control" id="localeSearchBar" placeholder="Enter a City" aria-label="Locale Search" />
+            <div class="input-group-append" id="button-addon"></div>
+          </div>
+
+          <!--Button next to form that acts as a dropdown-->
+          <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+
+          <!--This is what is displayed in the dropdown-->
+          <div class="dropdown-menu" id="localeSelectorDropdown">
+            <button class="dropdown-item locale-item" type="button" value="Seattle">Seattle</a>
               <button class="dropdown-item locale-item" type="button" value="Orlando">Orlando</button>
               <button class="dropdown-item locale-item" type="button" value="Tampa Bay">Tampa Bay</button>
               <button class="dropdown-item locale-item" type="button" value="New York City">New York City</button>
               <button class="dropdown-item locale-item" type="button" value="Melbourne">Melbourne</button>
-            </div>
-        
           </div>
-                
-          <button type="button" class="btn btn-dark my-5" id="userSubmit">Submit</button>
-        
+
+        </div>
+
+        <button type="button" class="btn btn-dark my-5" id="userSubmit">Submit</button>
+
+      </div>
+    </div>
+    <!--End Search Container Row-->
+
+    <div class="row py-5 bg-light text-center">
+      <div class="col-12" id="resultDiv">
+        <!--ajax information-->
+      </div>
+    </div>
+
+     <!--footer-->
+  </div>
+  <footer class="section footer-classic context-dark bg-image" style="background: #2d3246;">
+    <div class="container">
+      <div class="row row-30">
+        <div class="col-md-4 col-xl-5">
+          <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="images/agency/logo-inverse-140x37.png"
+                alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
+            <p>Foodeez Dinner Solutions</p>
+            
+            <p class="rights"><span>Project 1</span>
+              <br>
+              <span>2019</span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h5>Contact Us</h5>
+
+          <dl class="contact-list">
+            <dt>email:</dt>
+            <dd><a href="mailto:#">Project1@UCF.com</a></dd>
+          </dl>
+          <dl class="contact-list">
+            <dt>phone:</dt>
+            <dd><a href="tel:#">999-999-9999</a>
+            </dd>
+          </dl>
+        </div>
+        <div class="col-md-4 col-xl-3">
+
+          <ul class="nav-list">
+            <li><a href="#">Recipes</a></li>
+            <li><a href="#">Restaurants</a></li>
+            <li><a href="#">Reservations</a></li>
+          </ul>
         </div>
       </div>
-      <!--End Search Container Row-->
-
-      <div class="row py-5 bg-light text-center">
-        <div class="col-12" id="resultDiv">
-          <!--ajax information-->
-        </div>
-      </div>
-
+    </div>
+    <div class="row no-gutters social-container">
+      <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-facebook"></span><span>Facebook</span></a></div>
+      <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-instagram"></span><span>instagram</span></a></div>
+      <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-twitter"></span><span>twitter</span></a></div>
+      <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-youtube-play"></span><span>google</span></a></div>
     </div>
     <!--End Container-fluid Div-->
 
     <!--JQUERY MINI-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
     <!--BS POPPER-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-    crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
     <!--BS JS-->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-    crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
     <!--Own JS-->
     <script type="text/javascript" src="assets/js/edamam.js"></script>
     <!--OWN JS-->
     <script type="text/javascript" src="assets/js/projectOne.js"></script>
 
-  </body>
+</body>
+
 </html>
