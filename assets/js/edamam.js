@@ -14,7 +14,7 @@ $(document).ready(function () {
 
   $("#recipeClick").on("click", function () {
 
-
+    
 
     toggleRecipe();
 
@@ -62,6 +62,8 @@ $(document).ready(function () {
 
     console.log(recipe);
 
+
+    $("#resultDiv").text("");
 
 
     $.ajax({
@@ -114,7 +116,11 @@ function displayObjectArry(object) {
 
   for (var i = 0; i < object.hits[0].recipe.ingredients.length; i++) {
 
-    console.log(object.hits[0].recipe.ingredients[i].text);
+    var recipeShenan = $("<div>");
+
+    recipeShenan.html(object.hits[0].recipe.ingredients[i].text);
+
+    $("#resultDiv").append(recipeShenan);
 
   }
 
