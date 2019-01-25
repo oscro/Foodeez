@@ -114,15 +114,23 @@ $(document).ready(function () {
 
 function displayObjectArry(object) {
 
+  var recipeShenan = $("<ul>");
+
+  var recipeImg = $("<img src='" + object.hits[0].recipe.image + "'>");
+
   for (var i = 0; i < object.hits[0].recipe.ingredients.length; i++) {
 
-    var recipeShenan = $("<div>");
+    var recipeLi = $("<li>")
 
-    recipeShenan.html(object.hits[0].recipe.ingredients[i].text);
+    recipeLi.html(object.hits[0].recipe.ingredients[i].text);
 
-    $("#resultDiv").append(recipeShenan);
+    $(recipeShenan).append(recipeLi);
 
   }
+
+  $("#resultDiv").append(recipeImg);
+
+  $("#resultDiv").append(recipeShenan);
 
 };
 
