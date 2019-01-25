@@ -14,7 +14,7 @@ $(document).ready(function () {
 
   $("#recipeClick").on("click", function () {
 
-
+    
 
     toggleRecipe();
 
@@ -62,6 +62,8 @@ $(document).ready(function () {
 
     console.log(recipe);
 
+
+    $("#resultDiv").text("");
 
 
     $.ajax({
@@ -112,11 +114,23 @@ $(document).ready(function () {
 
 function displayObjectArry(object) {
 
+  var recipeShenan = $("<ul>");
+
+  var recipeImg = $("<img src='" + object.hits[0].recipe.image + "'>");
+
   for (var i = 0; i < object.hits[0].recipe.ingredients.length; i++) {
 
-    console.log(object.hits[0].recipe.ingredients[i].text);
+    var recipeLi = $("<li>")
+
+    recipeLi.html(object.hits[0].recipe.ingredients[i].text);
+
+    $(recipeShenan).append(recipeLi);
 
   }
+
+  $("#resultDiv").append(recipeImg);
+
+  $("#resultDiv").append(recipeShenan);
 
 };
 
