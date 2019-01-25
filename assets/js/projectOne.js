@@ -38,6 +38,18 @@ var uiConfig = {
 
 ui.start('#firebaseui-auth-container', uiConfig);
 
+//Sign up new users
+firebase.auth().createUserWithEmailAndPassword (email, password).catch(function(error) {
+  var errorCode = error.code;
+  var errorMessage = error.message;
+
+  if (errorCode == "auth/weak-password") {
+    console.log("Password too weak");
+  } else {
+    console.log(errorMessage);
+  }
+})
+
 var database = firebase.database().ref("/favorites");
 
 var cuisine = "";
