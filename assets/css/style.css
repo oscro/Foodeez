@@ -155,7 +155,7 @@ body{
 
   .context-dark, .bg-gray-dark, .bg-primary {
     color: rgba(255, 255, 255, 0.8);
-    background-color: #383838 !important;
+    background-color: #282828 !important;
 }
 
 .footer-classic a, .footer-classic a:focus, .footer-classic a:active {
