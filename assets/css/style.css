@@ -36,6 +36,32 @@ h1{
 
 }
 
+#navbar{
+  background-color: #282828 !important;
+}
+a{
+  color: #fff !important;
+}
+
+#line{
+  padding: 3px;
+  
+}
+.navbar a {
+  float: right;
+  text-align: right;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+#navbarNavAltMarkup{
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.nav-item{
+ margin-right: 875px !important;
+}
 
 
 hr.line {
@@ -51,11 +77,10 @@ hr.line:after {
 }
 
 body{
-  font-family: 'Dosis',sans-serif;
+  font-family: 'Courier New', Courier, monospace;
   font-size: 20px;
   font-weight: 400;
   letter-spacing: 1px;
- 
   background-color: whitesmoke;
 
 }
