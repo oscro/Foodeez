@@ -162,13 +162,13 @@ function displayObjectArry(object, recipeNum) {
   
   var recipeTitle = object.hits[recipeNum].recipe.label;
 
-  var recipeTitleHolder = $("<h1>").attr("class", "col-12 text-center recipeTitleHolder");
+  var recipeTitleHolder = $("<h1>").attr("class", "col-12 text-center recipeTitleHolder pb-5");
 
   $(recipeTitleHolder).html(recipeTitle);
 
   $(".recipeTitleHolder").remove();
 
-  $("#searchContainer").append(recipeTitleHolder);
+  $(newRow).append(recipeTitleHolder);
 
   $("#resultDiv").append(newRow);
   $(newRow).append(secondNewColumn)
