@@ -17,7 +17,7 @@ FoodEEZ was created using HTML5,CSS3, Bootstrap, JavaScript, jQuery,[Zomato rest
 - [Trevor Peacock](https://github.com/TrevPea97)
 - [Kyle Caplis](https://github.com/Kcaplis87)
 ## <a name="demo"></a>Demo
-Live demo: https://davidweid.github.io/First-BC-Project/
+Live demo: https://oscro.github.io/Foodeez/
 ### Note
 Since we are using the _free_ developer version of the [EDAMAM recipe API](https://www.edamam.com/) we are limited to 5 API calls per minute.
 So if you encounter any problems while using the site - just give it a minute
